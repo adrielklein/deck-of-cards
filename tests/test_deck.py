@@ -1,6 +1,6 @@
 import pytest
 
-from deck import Deck
+from app.deck import Deck
 
 
 def test_when_deck_is_initialized_then_it_is_empty():
@@ -44,7 +44,7 @@ def test_when_deck_is_empty_and_user_draws_card_then_raise_exception():
     deck = Deck()
     with pytest.raises(Exception) as excinfo:
         deck.draw()
-    assert 'No cards left to draw. Please reset the deck or add cards.' == str(excinfo.value)
+    assert 'No cards to draw. Please reset the deck or add cards.' == str(excinfo.value)
 
 
 def test_when_deck_is_shuffled_then_cards_get_different_ordering():

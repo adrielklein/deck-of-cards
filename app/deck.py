@@ -17,7 +17,7 @@ class Deck(object):
 
     def draw(self):
         if self.get_num_remaining_cards() == 0:
-            raise Exception('No cards left to draw. Please reset the deck or add cards.')
+            raise Exception('No cards to draw. Please reset the deck or add cards.')
         card = self.remaining_cards.pop()
         self.drawn_cards.append(card)
         return card
