@@ -1,8 +1,9 @@
+from deck import Deck
 from main import create_app
 
 
 def start_server():
-    app = create_app()
+    app = create_app(Deck())
     app.run(host='0.0.0.0', port=5000)
 
 
