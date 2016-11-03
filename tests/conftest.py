@@ -1,7 +1,7 @@
 import pytest
 
-from deck import Deck
-from main import create_app
+from app.deck import Deck
+from app.main import create_app
 
 
 @pytest.fixture

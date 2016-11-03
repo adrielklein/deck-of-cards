@@ -1,6 +1,6 @@
 import pytest
 
-from deck import Deck
+from app.deck import Deck
 
 
 def test_when_deck_is_initialized_then_it_is_empty():
