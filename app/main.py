@@ -1,6 +1,6 @@
 from flask import Flask
 
-from app.routes import AcknowledgeRoute, AddCardRoute, DrawCardRoute, ShuffleRoute, ResetRoute, CardsLeftRoute
+from app.routes import AcknowledgeRoute, AddCardRoute, DrawCardRoute, ShuffleRoute, ResetRoute, NumCardsLeftRoute
 
 
 def _set_up_routes(routes, app):
@@ -15,7 +15,7 @@ def create_app(deck):
               DrawCardRoute(deck),
               ShuffleRoute(deck),
               ResetRoute(deck),
-              CardsLeftRoute(deck)]
+              NumCardsLeftRoute(deck)]
     _set_up_routes(routes, app)
 
     return app

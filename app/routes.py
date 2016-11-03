@@ -56,14 +56,10 @@ class DrawCardRoute(object):
         self.deck = deck
 
     def handle(self):
-        print('a')
         if 0 == self.deck.get_num_remaining_cards():
             return json.dumps({'errorMessage': 'No cards to draw. Please reset the deck or add cards.'}), 400
-        print('b')
         card = self.deck.draw()
-        print('c')
         result = {'suit': card.suit, 'rank': card.rank}
-        print('d')
         return json.dumps(result)
 
 
@@ -93,7 +89,7 @@ class ResetRoute(object):
         return ''
 
 
-class CardsLeftRoute(object):
+class NumCardsLeftRoute(object):
     path = '/numCardsLeft'
     endpoint = 'num_cards_left'
     method = 'GET'
@@ -102,5 +98,5 @@ class CardsLeftRoute(object):
         self.deck = deck
 
     def handle(self):
-        result = {'cardsLeft': self.deck.get_num_remaining_cards()}
+        result = {'numCardsLeft': self.deck.get_num_remaining_cards()}
         return json.dumps(result)
