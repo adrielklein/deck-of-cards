@@ -21,9 +21,10 @@ def test_when_user_starts_server_then_standard_52_cards_are_added_to_deck(monkey
     monkeypatch.setattr(Flask, 'run', mocked_run)
     app = start_server()
     with app.test_client() as test_client:
-        response = test_client.get('/numCardsLeft')
-        assert 52 == json.loads(response.get_data().decode())['numCardsLeft']
+        assert 52 == json.loads(test_client.get('/numCardsLeft').get_data().decode())['numCardsLeft']
         for i in range(52):
             response = json.loads(test_client.put('/card').get_data().decode())
             assert response['suit'] in SUITS
             assert response['rank'] in RANKS
+        assert 0 == json.loads(test_client.get('/numCardsLeft').get_data().decode())['numCardsLeft']
+

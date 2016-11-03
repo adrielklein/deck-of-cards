@@ -5,8 +5,12 @@ from app.deck import Deck
 from app.main import create_app
 
 
-def test_when_acknowledge_route_is_hit_then_it_returns_ok(app):
-    with app.test_client() as test_client:
+def get_app(deck=None):
+    return create_app(deck or Deck())
+
+
+def test_when_acknowledge_route_is_hit_then_it_returns_ok():
+    with get_app().test_client() as test_client:
         response = test_client.get('/acknowledge')
         assert 200 == response.status_code
         assert 'OK' == response.get_data().decode()
@@ -14,8 +18,7 @@ def test_when_acknowledge_route_is_hit_then_it_returns_ok(app):
 
 def test_when_add_card_route_is_hit_then_add_card_to_deck():
     deck = Deck()
-    app = create_app(deck)
-    with app.test_client() as test_client:
+    with get_app(deck).test_client() as test_client:
         response = test_client.post('/card', data=b'{ "suit": "S", "rank":"A"}')
         assert 201 == response.status_code
     card = deck.draw()
@@ -24,8 +27,7 @@ def test_when_add_card_route_is_hit_then_add_card_to_deck():
 
 
 def test_when_draw_card_route_is_hit_then_retrieve_card():
-    app = create_app(Deck())
-    with app.test_client() as test_client:
+    with get_app().test_client() as test_client:
         test_client.post('/card', data=b'{ "suit": "S", "rank":"A"}')
 
         response = test_client.put('/card')
@@ -36,8 +38,7 @@ def test_when_draw_card_route_is_hit_then_retrieve_card():
 
 
 def test_when_deck_is_empty_then_get_card_route_return_error():
-    app = create_app(Deck())
-    with app.test_client() as test_client:
+    with get_app().test_client() as test_client:
         response = test_client.put('/card')
         assert 400 == response.status_code
         error_message = json.loads(response.get_data().decode())['errorMessage']
@@ -46,7 +47,7 @@ def test_when_deck_is_empty_then_get_card_route_return_error():
 
 def test_shuffle_route():
     shuffle_mock = Mock()
-    app = create_app(deck=Mock(shuffle=shuffle_mock))
+    app = get_app(deck=Mock(shuffle=shuffle_mock))
     with app.test_client() as test_client:
         response = test_client.put('/shuffle')
         assert 200 == response.status_code
@@ -55,7 +56,7 @@ def test_shuffle_route():
 
 def test_reset_route():
     reset_mock = Mock()
-    app = create_app(deck=Mock(reset=reset_mock))
+    app = get_app(deck=Mock(reset=reset_mock))
     with app.test_client() as test_client:
         response = test_client.put('/reset')
         assert 200 == response.status_code
@@ -63,8 +64,7 @@ def test_reset_route():
 
 
 def test_cards_left_route():
-    app = create_app(Deck())
-    with app.test_client() as test_client:
+    with get_app().test_client() as test_client:
         response = test_client.get('/numCardsLeft')
         assert 200 == response.status_code
         assert 0 == json.loads(response.get_data().decode())['numCardsLeft']
