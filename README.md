@@ -2,7 +2,7 @@
 
 
 #:black_joker: Deck of Cards :black_joker:
-A simple web app that allows users to draw from, shuffle, and reset a deck of playing cards. The app is deployed on [Heroku](http://deck-of-cards.herokuapp.com).
+A simple web app that allows users to draw from, shuffle, and reset a deck of playing cards. The app is live [here](http://deck-of-cards.herokuapp.com).
 
 ##Description
 
