@@ -45,22 +45,6 @@ class DrawCardRoute(object):
         return json.dumps(result)
 
 
-class DrawCardRoute(object):
-    path = '/card'
-    endpoint = 'get_card'
-    method = 'PUT'
-
-    def __init__(self, deck):
-        self.deck = deck
-
-    def handle(self):
-        if 0 == self.deck.get_num_remaining_cards():
-            return json.dumps({'errorMessage': 'No cards to draw. Please reset the deck or add cards.'}), 400
-        card = self.deck.draw()
-        result = {'suit': card.suit, 'rank': card.rank}
-        return json.dumps(result)
-
-
 class ShuffleRoute(object):
     path = '/shuffle'
     endpoint = 'shuffle'
