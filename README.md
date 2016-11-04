@@ -6,11 +6,9 @@ Deck of Cards is a simple web app that allows users to draw from, shuffle, and r
 
 ##Description
 
-When the server is started, the standard 52 playing cards are added to the deck. Users can then draw cards from the deck until it is empty. 
-Once the deck is empty, users may reset the deck to start over.
+When the server starts, the standard 52 playing cards are added to the deck. Users can then draw cards from the deck until it is empty. Once the deck is empty, users may reset the deck to start over.
 
-The deck is not shuffled by default, but users may shuffle it at any time.
-Users can also check how many cards are left in the deck. Although the deck contains the regular 52 cards, users may also add additional cards.
+The deck is not shuffled by default, but users may shuffle it at any time. Users can also check how many cards are left in the deck. Although the deck contains the regular 52 cards, users may also add additional cards.
 
 
 ## Routes
