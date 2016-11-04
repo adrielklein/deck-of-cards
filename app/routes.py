@@ -24,9 +24,7 @@ class AddCardRoute(object):
 
     def handle(self):
         request_info = json.loads(request.get_data().decode())
-        suit = request_info['suit']
-        rank = request_info['rank']
-        card = Card(suit, rank)
+        card = Card(request_info['suit'], request_info['rank'])
         self.deck.add_card(card)
         return '', 201
 
