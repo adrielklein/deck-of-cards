@@ -17,11 +17,11 @@ function draw(){
         type: 'PUT',
         success: function(result) {
             result = JSON.parse(result);
-            $("#drawnCard").text("You drew a " + result["rank"]+ " of " + SUIT_LETTER_2_NAME[result['suit']]);
+            $("#message").text("You drew a " + result["rank"]+ " of " + SUIT_LETTER_2_NAME[result['suit']]);
         },
         error: function(result){
             result = JSON.parse(result['responseText']);
-            $("#drawnCard").text(result['errorMessage']);
+            $("#message").text(result['errorMessage']);
         }
     });
     setNumCardsLeft();
@@ -33,6 +33,7 @@ function reset(){
         type: 'PUT',
         success: function(result) { }
     });
+    $("#message").text("Deck has been reset");
     setNumCardsLeft();
 }
 
@@ -42,5 +43,6 @@ function shuffle(){
         type: 'PUT',
         success: function(result) { }
     });
+    $("#message").text("Deck has been shuffled");
     setNumCardsLeft();
 }
