@@ -12,14 +12,14 @@ The deck is not shuffled by default, but users may shuffle it at any time. Users
 
 
 ## Routes
-- `POST /card`: Adds a card to the deck
+- `POST /card` Adds a card to the deck
   - `curl -i -X POST -d '{ "suit": "S", "rank": "A" }' http://localhost:5000/card` --> `HTTP/1.0 201 CREATED`
-- `PUT /card`: Draws a card from the deck. If the deck is empty then returns an error
+- `PUT /card` Draws a card from the deck. If the deck is empty then returns an error
   - `curl -X PUT localhost:5000/card` --> `{"rank": "A", "suit": "S"}`
   - `curl -X PUT localhost:5000/card` -->`{"errorMessage": "No cards to draw. Please reset the deck or add cards."}`
-- `PUT /shuffle`: Shuffles the cards in the deck
-- `PUT /reset`: Puts all the drawn cards back in the deck
-- `GET /numCardsLeft`: Gets the number of cards left in the deck
+- `PUT /shuffle` Shuffles the cards in the deck
+- `PUT /reset` Puts all the drawn cards back in the deck
+- `GET /numCardsLeft` Gets the number of cards left in the deck
   - `curl -X GET https://deck-of-cards.herokuapp.com/numCardsLeft` --> `{"numCardsLeft": 50}`
   
 ## Build Instructions
