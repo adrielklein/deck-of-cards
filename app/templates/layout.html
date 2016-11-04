@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="/static/deck.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Deck of Cards</title>
 </head>
 <body>
@@ -16,5 +17,10 @@
 <div><button onclick="reset()">Reset Deck</button></div>
 
 <div><button onclick="shuffle()">Shuffle Deck</button></div>
+
+<br>
+<br>
+
+<div><p>Created by Adriel Klein. Feel free to <a href="https://github.com/adrielklein/deck-of-cards">view the source</a>.</p></div>
 </body>
 </html>
