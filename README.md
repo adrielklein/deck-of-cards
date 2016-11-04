@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/adrielklein/deck-of-cards.svg?branch=master)](https://travis-ci.org/adrielklein/deck-of-cards)
-![Heroku App](http://deck-of-cards.herokuapp.com)
+[Heroku App](http://deck-of-cards.herokuapp.com)
 
 #:black_joker: Deck of Cards :black_joker:
 A simple web app that allows users to draw from, shuffle, and reset a deck of playing cards.
