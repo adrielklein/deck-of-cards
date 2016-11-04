@@ -1,9 +1,12 @@
+import os
+
 from app.card import Card
 from app.deck import Deck
 from app.main import create_app
 
 SUITS = ['S', 'H', 'D', 'C']
 RANKS = [str(i) for i in range(2, 11)] + ['J', 'Q', 'K', 'A']
+PORT = 5000
 
 
 def create_deck():
@@ -16,7 +19,7 @@ def create_deck():
 
 def start_server():
     app = create_app(create_deck())
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', PORT)))
     return app
 
 
