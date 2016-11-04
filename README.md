@@ -2,7 +2,7 @@
 [![Heroku Status](https://heroku-badge.herokuapp.com/?app=deck-of-cards)](http://deck-of-cards.herokuapp.com)
 
 #:black_joker: Deck of Cards :black_joker:
-Deck of Cards is a simple web app that allows users to draw from, shuffle, and reset a deck of playing cards.
+A simple web app that allows users to draw from, shuffle, and reset a deck of playing cards.
 
 ##Description
 
