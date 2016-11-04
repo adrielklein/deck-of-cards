@@ -1,5 +1,6 @@
 import json
 
+from flask import render_template
 from flask import request
 
 from app.card import Card
@@ -12,6 +13,15 @@ class AcknowledgeRoute(object):
 
     def handle(self):
         return 'OK'
+
+
+class FrontEndRoute(object):
+    path = '/'
+    endpoint = 'front_end'
+    method = 'GET'
+
+    def handle(self):
+        return render_template('layout.html')
 
 
 class AddCardRoute(object):

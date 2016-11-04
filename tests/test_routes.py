@@ -68,3 +68,9 @@ def test_cards_left_route():
         response = test_client.get('/numCardsLeft')
         assert 200 == response.status_code
         assert 0 == json.loads(response.get_data().decode())['numCardsLeft']
+
+
+def test_front_end_route():
+    with get_app().test_client() as test_client:
+        response = test_client.get('/')
+        assert 200 == response.status_code
